@@ -8,7 +8,33 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (dateList, position) => {
+  let tempArray = [];
+  for (let i=0; i <dateList.length; i++) {
+    if (position == null) {
+      getCreateDate(tempArray,dateList[i]) 
+    }
+    else {
+      getCreatDateAndPositon(tempArray, dateList[i], i, position)
+    }
+  }
+
+  return tempArray.join('-')
+};
+
+const getCreateDate=(tempArray,dateList) => {
+  return tempArray.push(convertToSecond(dateList))
+}
+
+const getCreatDateAndPositon=(tempArray, dateList, index, position) =>{
+  if (index === position) {
+    tempArray.push(convertToSecond(dateList))
+  }
+}
+
+const convertToSecond=(epochTime)=> {
+  return Math.floor(Date.parse(epochTime)/1000)
+}
 
 // ! JANGAN DIMODIFIKASI
 (() => {
