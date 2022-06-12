@@ -10,23 +10,23 @@ const dates = [
 // TODO: Buatlah fungsi createDate
 const createDate = (dateList, position) => {
   let tempArray = [];
-  for (let i=0; i <dateList.length; i++) {
-    if (position == null) {
-      getCreateDate(tempArray,dateList[i]) 
+  for (let i=0; i < dateList.length; i++) {
+    if(position == null) {
+      getCreateDate(tempArray, dateList[i]) 
     }
     else {
-      getCreatDateAndPositon(tempArray, dateList[i], i, position)
+      getCreateDateAndPosition(tempArray, dateList[i], i, position)
     }
   }
 
-  return tempArray.join('-')
+  return tempArray.sort().join('-')
 };
 
 const getCreateDate=(tempArray,dateList) => {
   return tempArray.push(convertToSecond(dateList))
 }
 
-const getCreatDateAndPositon=(tempArray, dateList, index, position) =>{
+const getCreateDateAndPosition=(tempArray,dateList, index, position) => {
   if (index === position) {
     tempArray.push(convertToSecond(dateList))
   }
